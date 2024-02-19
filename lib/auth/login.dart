@@ -1,5 +1,6 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:first/app_colors.dart';
+import 'package:first/auth/forgot_password.dart';
 import 'package:first/auth/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -137,10 +138,19 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text('Password'),
-                Text(
-                  'Forgot password?',
-                  style: theme.textTheme.bodyMedium!
-                      .copyWith(color: theme.colorScheme.primary),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) {
+                        return ForgotPasswordScreen();
+                      },
+                    ));
+                  },
+                  child: Text(
+                    'Forgot password?',
+                    style: theme.textTheme.bodyMedium!
+                        .copyWith(color: theme.colorScheme.primary),
+                  ),
                 )
               ],
             ),
@@ -237,7 +247,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(
                           width: 16,
                         ),
-                        const Text('Sign in with google'),
+                        const Text('Sign in with Google'),
                       ],
                     )),
               ),
@@ -249,7 +259,7 @@ class _LoginScreenState extends State<LoginScreen> {
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) {
-                    return SignupScreen();
+                    return const SignupScreen();
                   },
                 ));
               },
