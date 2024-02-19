@@ -1,15 +1,14 @@
-import 'package:first/auth/reset_password.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ForgotPasswordScreen extends StatefulWidget {
-  const ForgotPasswordScreen({super.key});
+class ResetPasswordScreen extends StatefulWidget {
+  const ResetPasswordScreen({super.key});
 
   @override
-  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
+  State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
 }
 
-class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
+class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   bool obsecureText = true;
   bool obsecureTextConfirmation = true;
   @override
@@ -23,7 +22,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
+              InkWell(
                   onTap: () {
                     Navigator.of(context).pop();
                   },
@@ -32,7 +31,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 height: 48,
               ),
               Text(
-                'Forgot Password?',
+                'Reset Password',
                 style: theme.textTheme.displaySmall!
                     .copyWith(fontSize: 40, fontWeight: FontWeight.w800),
               ),
@@ -40,7 +39,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 height: 16,
               ),
               Text(
-                'Enter your email address to get the password reset link.',
+                'Enter your new password twice below to reset your password.',
                 style: theme.textTheme.bodyLarge!.copyWith(
                     fontSize: 18,
                     color: theme.colorScheme.onBackground.withOpacity(0.6)),
@@ -48,7 +47,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               const SizedBox(
                 height: 60,
               ),
-              const Text('Email Address'),
+              const Text('Enter new password'),
               const SizedBox(
                 height: 8,
               ),
@@ -67,20 +66,34 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 )),
               ),
               const SizedBox(
+                height: 16,
+              ),
+              const Text('Re-enter new password'),
+              const SizedBox(
+                height: 8,
+              ),
+              TextFormField(
+                obscureText: obsecureTextConfirmation,
+                decoration: InputDecoration(
+                    suffixIcon: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      obsecureTextConfirmation = !obsecureTextConfirmation;
+                    });
+                  },
+                  child: Icon(obsecureTextConfirmation
+                      ? CupertinoIcons.eye
+                      : CupertinoIcons.eye_slash),
+                )),
+              ),
+              const SizedBox(
                 height: 32,
               ),
               SizedBox(
                 width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) {
-                          return const ResetPasswordScreen();
-                        },
-                      ));
-                    },
-                    child: const Text('Password Reset')),
+                    onPressed: () {}, child: const Text('Reset Password')),
               )
             ],
           ),

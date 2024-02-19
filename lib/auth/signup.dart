@@ -31,14 +31,6 @@ class _SignupScreenState extends State<SignupScreen> {
                 const SizedBox(
                   height: 24,
                 ),
-                const Text('Name'),
-                const SizedBox(
-                  height: 8,
-                ),
-                TextFormField(),
-                const SizedBox(
-                  height: 16,
-                ),
                 const Text('Email Address'),
                 const SizedBox(
                   height: 8,

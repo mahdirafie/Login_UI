@@ -142,7 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) {
-                        return ForgotPasswordScreen();
+                        return const ForgotPasswordScreen();
                       },
                     ));
                   },
@@ -313,10 +313,19 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text('Password'),
-                Text(
-                  'Forgot password?',
-                  style: theme.textTheme.bodyMedium!
-                      .copyWith(color: theme.colorScheme.primary),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) {
+                        return const ForgotPasswordScreen();
+                      },
+                    ));
+                  },
+                  child: Text(
+                    'Forgot password?',
+                    style: theme.textTheme.bodyMedium!
+                        .copyWith(color: theme.colorScheme.primary),
+                  ),
                 )
               ],
             ),
@@ -426,7 +435,7 @@ class _LoginScreenState extends State<LoginScreen> {
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) {
-                    return SignupScreen();
+                    return const SignupScreen();
                   },
                 ));
               },
